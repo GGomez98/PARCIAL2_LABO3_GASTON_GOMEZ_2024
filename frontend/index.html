@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Segundo Parcial Labo III</title>
+    <link rel="icon" href="./img/logo.svg">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./style/bootstrap.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./style/main.css'>
+    <script src='./js/main.js' type='module'></script>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <img src="img/logo.svg" alt="logo paginas" id="logo">
+            <nav>
+                <a class="item-menu" href="#">Nosotros</a>
+                <a class="item-menu" href="#">Anuncios</a>
+                <a class="item-menu" href="#">Blog</a>
+                <a class="item-menu" href="#">Contacto</a>
+            </nav>
+        </div>
+        <h1>Administrador de Planetas</h1>
+    </header>
+    <section id="administracion" class="section">
+        <form id="form-item" class="border rounded border-dark">
+            <h1>Informacion del Planeta</h1>
+            <input type="hidden" name="id">
+            <label for="txtNombre">Nombre</label>
+            <input type="text" id="txtNombre" name="nombre" placeholder="Nombre" required>
+            <label for="txtTamanio">Tamaño</label>
+            <input type="text" id="txtTamanio" name="tamanio" placeholder="Tamaño" required>
+            <label for="txtMasa">Masa</label>
+            <input type="text" id="txtMasa" name="masa" placeholder="Masa" required>
+            <label for="selectTipo">Tipo</label>
+            <select name="tipo" id="selectTipo">
+                <option>Seleccione una opcion</option>
+                <option value="Rocoso">Rocoso</option>
+                <option value="Gaseoso">Gaseoso</option>
+                <option value="Helado">Helado</option>
+                <option value="Enano">Enano</option>
+            </select>
+            <label for="txtDistancia">Distancia al sol</label>
+            <input type="text" id="txtDistancia" name="distancia" placeholder="Distancia" required>
+            <label for="cbxVida">Presenta vida</label>
+            <input type="checkbox" id="cbxVida" name="vida">
+            <label for="cbxAnillo">Presenta anillo</label>
+            <input type="checkbox" id="cbxAnillo" name="anillo">
+            <label for="txtAtmosfera">Composicion Atmosferica</label>
+            <textarea placeholder="Ingrese Composicion..." id="txtAtmosfera" name="compAtmosfera" required></textarea>
+            <div class="btnFrm">
+                <input id="btnGuardar" type="submit" value="Guardar" class="btn btn-primary">
+                <input id="btnEliminar" type="button" value="Eliminar" class="btn btn-danger oculto">
+                <input id="btnCancelar" type="button" value="Cancelar" class="btn btn-secondary oculto">
+                <input id="btnModificar" type="button" value="Modificar" class="btn btn-warning oculto">
+            </div>
+        </form>
+        <form id="filtros" class="border rounded border-dark">
+            <select name="tipo" id="selectTipo">
+                <option value=''>Seleccione una opcion</option>
+                <option value="Rocoso">Rocoso</option>
+                <option value="Gaseoso">Gaseoso</option>
+                <option value="Helado">Helado</option>
+                <option value="Enano">Enano</option>
+            </select>
+            <div id="cbxsColumnas">
+                <div>
+                    <label for="cbxId">Id</label>
+                    <input type="checkbox" id="cbxId" name="id" class="checkbox" checked>
+                </div>
+                <div>
+                    <label for="cbxNombre">Nombre</label>
+                    <input type="checkbox" id="cbxNombre" name="nombre" class="checkbox" checked>
+                </div>
+                <div>
+                    <label for="cbxTamanio">Tamanio</label>
+                    <input type="checkbox" id="cbxTamanio" name="tamanio" class="checkbox" checked>
+                </div>
+                <div>
+                    <label for="cbxMasa">Masa</label>
+                    <input type="checkbox" id="cbxMasa" name="masa" class="checkbox" checked>
+                </div>
+                <div>
+                    <label for="cbxTipo">Tipo</label>
+                    <input type="checkbox" id="cbxTipo" name="tipo" class="checkbox" checked>
+                </div>
+                <div>
+                    <label for="cbxDistancia">Distancia</label>
+                    <input type="checkbox" id="cbxDistancia" name="distancia" class="checkbox" checked>
+                </div>
+                <div>
+                    <label for="cbxPresentaVida">Vida</label>
+                    <input type="checkbox" id="cbxPresentaVida" name="vida" class="checkbox" checked>
+                </div>
+                <div>
+                    <label for="cbxPresentaAnillo">Anillo</label>
+                    <input type="checkbox" id="cbxPresentaAnillo" name="anillo" class="checkbox" checked>
+                </div>
+                <div>
+                    <label for="cbxCompAtmosfera">CompAtmosfera</label>
+                    <input type="checkbox" id="cbxCompAtmosfera" name="compAtmosfera" class="checkbox" checked>
+                </div>
+            </div>
+            <div class="btnFilter">
+                <input id="btnFiltrar" type="submit" value="Filtrar" class="btn btn-primary">
+            </div>
+        </form>
+        <div id="delete-all-div">
+            <input id="delete-all-button" type="button" value="Eliminar todo" class="btn btn-danger"></input>
+        </div>
+        <div id="spinner-container"></div>
+        <div id="divTabla">
+        </div>
+    </section>
+    <footer class="bg-dark text-white p-4">
+        <nav>
+            <a class="item-menu" href="#nosotros">Nosotros</a>
+            <a class="item-menu" href="#anuncios">Anuncios</a>
+            <a class="item-menu" href="#nuestro-blog">Blog</a>
+            <a class="item-menu" href="#contacto">Contacto</a>
+        </nav>
+        <p id="derechos">Todos los derechos reservados &copy; 2024</p>
+    </footer>
+</body>
+</html>

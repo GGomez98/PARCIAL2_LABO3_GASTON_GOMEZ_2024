@@ -1,0 +1,242 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    background-image: url('../img/background.jpg');
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: baseline;
+    height: 30vh;
+    align-items: start;
+}
+
+header div{
+    width: 100%;
+    background-color: #4683b46b;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
+header img{
+    width: fit-content;
+    margin-left: 10px;
+    height: 100%;
+}
+
+header nav{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3px;
+    align-items: center;
+    height: 100%;
+}
+
+header nav a{
+    padding: 3px;
+    text-decoration: none;
+    align-self: center;
+    color: white;
+}
+
+header nav a:hover{
+    background-color: #4683b4c2;
+}
+
+section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section h1{
+    width: 100%;
+    text-align: center;
+}
+
+section form{
+    width: 50%;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    padding: 1%;
+}
+
+section form label{
+    width: 45%;
+    margin: 4px;
+}
+
+section form input{
+    width: 45%;
+    margin: 4px;
+    height: 5%;
+}
+
+#filtros{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3%;
+    height: 30%;
+}
+
+#filtros select{
+    width: 80%;
+    height: 10%;
+}
+
+#cbxsColumnas{
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+
+#cbxsColumnas div{
+    width: 10%;
+    text-align: center;
+}
+
+#cbxsColumnas div input{
+    height: 15%;
+}
+
+.btnFilter{
+    width: 50%;
+    height: 10%;
+}
+.btnFilter input{
+    height: 100%;
+}
+
+.rdbTransaccion{
+    width: 5%;
+    height: 5%;
+}
+
+.mid-input{
+    width: 32%;
+    margin: 3px;
+}
+
+.btnFrm{
+    width: 100%;
+    display: flex;
+}
+
+.btnFrm input{
+    width: 100%;
+    height: 100%;
+}
+
+.oculto {
+    display: none;
+}
+
+#delete-all-div{
+    width: 80%;
+    display: flex;
+    justify-content: right;
+}
+
+section table{
+    width: 60%;
+    margin-top: 40px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#spinner-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    animation: rotate 2s linear infinite;
+}
+
+#divTabla{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+thead{
+    background-color: #f08080;
+}
+
+th{
+    border: gray solid 1px;
+    padding: 0;
+}
+
+td{
+    border: gray solid 1px;
+    padding: 0;
+}
+
+footer{
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 10vh;
+    align-items: center;
+    margin-top: 30px;
+}
+
+footer nav{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+footer nav a{
+    margin: 5px;
+    text-decoration: none;
+    color: white;
+    height: 100%;
+}
+
+footer nav a:hover{
+    background-color: gray;
+}
+
+footer p{
+    width: 45%;
+    text-align: end;
+    padding: 3px;
+}
+
+@media (max-width: 1200px) {
+    section form{
+        width: 90%;
+    }
+    .mid-input{
+        width: 25%;
+        margin: 3px;
+    }
+}
