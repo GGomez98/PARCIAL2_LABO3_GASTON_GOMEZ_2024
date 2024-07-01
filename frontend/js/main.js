@@ -9,10 +9,14 @@ const btnEliminar = document.getElementById("btnEliminar");
 const btnCancelar = document.getElementById("btnCancelar");
 const btnModificar = document.getElementById("btnModificar");
 const btnBorrarTodo = document.getElementById("delete-all-button");
+const btnCalcular = document.getElementById("btnCalcular");
+const btnFiltrar = document.getElementById("btnFiltrar");
 
 document.addEventListener('DOMContentLoaded', onInit)
+btnFiltrar.addEventListener('click', filtrarTabla);
+btnCalcular.addEventListener('click', calcularPromedio);
 
-async function onInit(){
+function onInit(){
     loadItems();
     rellenarTabla();
     escuchandoFormulario();
@@ -21,7 +25,6 @@ async function onInit(){
     btnCancelar.addEventListener('click', handlerCancelar);
     btnModificar.addEventListener('click', handlreModificarAnuncio);
     btnBorrarTodo.addEventListener('click', handlerBorrarTodo);
-    aplicarFiltros();
 }
 
 async function loadItems() {
@@ -123,36 +126,17 @@ async function escuchandoFormulario() {
     });
 }
 
-async function aplicarFiltros(){
-  formularioFiltro.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    inyectarSpinner();
-    items = await obtenerTodosFetch();
-    console.log(items);
-    if(formularioFiltro.querySelector("#selectTipo").value != ''){
-      items = items.filter(planeta => planeta.tipo == formularioFiltro.querySelector("#selectTipo").value);
-      console.log(items);
-    }
-    rellenarTabla();
-    const checkboxes = formularioFiltro.querySelectorAll('#cbxsColumnas .checkbox');
-    checkboxes.forEach(element => {
-      let header = document.querySelector('#'+element.name+'-header');
-      let celdas = document.querySelectorAll('.'+element.name+'-cell');
-      if(!element.checked){
-        header.classList.add('oculto');
-        celdas.forEach(element => {
-          element.classList.add('oculto');
-        });
-      }
-      else{
-        header.classList.remove('oculto');
-        celdas.forEach(element => {
-          element.classList.remove('oculto');
-        });
-      }
-    });
-    removerSpinner();
-  });
+async function filtrarTabla(){
+  //obtengo todos los items
+  inyectarSpinner();
+  items = await obtenerTodos()
+  //filtro los items por filtro
+  if(formularioFiltro.querySelector("#selectTipo").value != ''){
+    items = items.filter(planeta => planeta.tipo.toLowerCase() == formularioFiltro.querySelector("#selectTipo").value.toLowerCase());
+  }
+  //cargo la tabla de vuelta
+  removerSpinner();
+  rellenarTabla();
 }
 
   function actualizarFormulario() {
@@ -342,4 +326,18 @@ function inyectarSpinner() {
 function removerSpinner() {
   const contenedor = document.getElementById("spinner-container");
   contenedor.removeChild(contenedor.firstChild);
+}
+
+function calcularPromedio() {
+  const listaConFiltroParaCalcular =
+  formularioFiltro.querySelector("#selectTipo").value === ""
+    ? items
+    : items.filter((elemento) => elemento.tipo === formularioFiltro.querySelector("#selectTipo").value);
+
+  let sumatoria = listaConFiltroParaCalcular.reduce((a, b) => a + parseInt(b.distancia), 0);
+  let promedio = sumatoria / listaConFiltroParaCalcular.length;
+  if(listaConFiltroParaCalcular.length == 0){
+    promedio = 0;
+  }
+  document.getElementById("inputPromedio").value = promedio;
 }

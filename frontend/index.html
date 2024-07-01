@@ -42,7 +42,7 @@
                 <option value="Enano">Enano</option>
             </select>
             <label for="txtDistancia">Distancia al sol</label>
-            <input type="text" id="txtDistancia" name="distancia" placeholder="Distancia" required>
+            <input type="number" id="txtDistancia" name="distancia" placeholder="Distancia" required>
             <label for="cbxVida">Presenta vida</label>
             <input type="checkbox" id="cbxVida" name="vida">
             <label for="cbxAnillo">Presenta anillo</label>
@@ -64,6 +64,8 @@
                 <option value="Helado">Helado</option>
                 <option value="Enano">Enano</option>
             </select>
+            <input id="inputPromedio" disabled>
+            <input id="btnCalcular" class="btn btn-secondary" value="Calcular">
             <div id="cbxsColumnas">
                 <div>
                     <label for="cbxId">Id</label>
@@ -103,7 +105,7 @@
                 </div>
             </div>
             <div class="btnFilter">
-                <input id="btnFiltrar" type="submit" value="Filtrar" class="btn btn-primary">
+                <input id="btnFiltrar" value="Filtrar" class="btn btn-primary">
             </div>
         </form>
         <div id="delete-all-div">

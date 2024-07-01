@@ -92,8 +92,17 @@ section form input{
 }
 
 #filtros select{
-    width: 80%;
-    height: 10%;
+    width: 50%;
+    height: 100%;
+}
+
+#btnCalcular{
+    width: 15%;
+    text-align: center;
+}
+
+#inputPromedio{
+    width: 30%;
 }
 
 #cbxsColumnas{
