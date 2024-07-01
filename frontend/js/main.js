@@ -134,9 +134,28 @@ async function filtrarTabla(){
   if(formularioFiltro.querySelector("#selectTipo").value != ''){
     items = items.filter(planeta => planeta.tipo.toLowerCase() == formularioFiltro.querySelector("#selectTipo").value.toLowerCase());
   }
-  //cargo la tabla de vuelta
-  removerSpinner();
   rellenarTabla();
+  //cargo la tabla de vuelta
+    const checkboxes = formularioFiltro.querySelectorAll('#cbxsColumnas .checkbox');
+    checkboxes.forEach(element => {
+      let header = document.querySelector('#'+element.name+'-header');
+      let celdas = document.querySelectorAll('.'+element.name+'-cell');
+      if(!element.checked){
+        header.classList.add('oculto');
+        celdas.forEach(element => {
+          element.classList.add('oculto');
+        });
+      }
+      else{
+        if(items.length>0){
+          header.classList.remove('oculto');
+          celdas.forEach(element => {
+            element.classList.remove('oculto');
+          });
+        }
+      }
+    });
+  removerSpinner();
 }
 
   function actualizarFormulario() {
